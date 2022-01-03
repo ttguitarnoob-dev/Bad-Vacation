@@ -24,3 +24,10 @@ Inventory:
     items will be pushed to it when clicked, and removed from it if used or traded
     Use bracket notation to call items by name instead of index number
     Different options will be available in a scene if the inventory contains an item that can be used in that scene.
+
+Reset Button: 
+    run function 
+        startGame(){
+            inventory [] //blank inventory
+            currentScene = scenes[0] //first scene
+        }

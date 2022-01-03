@@ -13,3 +13,22 @@ Gameplay:
     Restart button will reset the game from the beginning
     Puzzle elements included if time
     May include health system
+
+
+Focus on functionality before narrative
+
+    MVP: 
+    
+        Basic interface
+        Text and button loading system
+        Basic button navigation system
+        Game over system
+        Game win system
+
+Daily Goals:
+    
+    Monday: Interface and functionality experiments
+    Tuesday: Finish MVP
+    Wednesday: Add inventory system and write some narrative
+    Thursday: Finish narrative
+    Friday: Polishing
