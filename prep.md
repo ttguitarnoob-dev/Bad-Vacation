@@ -31,3 +31,7 @@ Reset Button:
             inventory [] //blank inventory
             currentScene = scenes[0] //first scene
         }
+
+
+
+        object.key

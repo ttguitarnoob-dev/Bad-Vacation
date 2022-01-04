@@ -1,20 +1,24 @@
 
 
 const scenes = [
-    startingScene = {
+      {
         text: 'You wake up in your bedroom in the middle of the night.',
         options: ['Walk to the bathroom', 'Pick up your phone', 'Pet the kitty'],
 
     },
-    bathroomScene = {
+     {
         text: "You enter the bathroom and discover a wonderful smell",
-        options: ['Ignore the smell and sit on the toilet', 'Walk back to the bedroom'],
+        options: ['Ignore the smell and sit on the toilet', 'Walk to the kitchen'],
+    },
+     {
+        text: "You enter the kitchen and discover that you have literally nothing for breakfast.  How does this happen every day?",
+        options: ['Eat a head of lettuce', 'drink water from the faucet']
     }
 ]
 
 const optionsButtons = document.getElementById("choice-btns")
 const sceneText = document.getElementById("text")
-var currentScene = scenes[0]
+let currentScene = scenes[0]
 
 function startGame(){
     // currentScene = scenes[0]
@@ -23,6 +27,7 @@ function startGame(){
 
 function setScene(scene){
     currentScene = scenes[scene]
+    console.log(currentScene)
     sceneText.innerText = currentScene.text
     while (optionsButtons.firstChild){
         optionsButtons.removeChild(optionsButtons.firstChild)
@@ -47,15 +52,31 @@ function setScene(scene){
 function choiceMade(e){
     let boxClicked = e.currentTarget.id
             // console.log(boxClicked)
-            if (currentScene = scenes[0]){
-                // console.log('scene 0 confirmed!!')
+            if (currentScene === scenes[0]) {
                 if (boxClicked === 'btnid0'){
-                setScene(1)
-            }else if (boxClicked === 'btnid2'){
-                console.log('purrpurrpurrCHOMP')
+                    setScene(1)
+                } else if (boxClicked === 'btnid1'){
+                    console.log('ringring')
+                } else if (boxClicked === 'btnid2'){
+                    console.log('purrpurrpurrCHOMP')
+                }
+                return 
             }
-        }
+            if (currentScene === scenes[1]) {
+                if (boxClicked === 'btnid0'){
+                    console.log('plop plop splash sphffff')
+                } else if (boxClicked === 'btnid1'){
+                    setScene(2)
+                } else if (boxClicked === 'btnid2'){
+                    console.log('purrpurrpurrCHOMP')
+                }
+                return
+            }
             
+
+
+            //end of the line
+
 }
 
 
