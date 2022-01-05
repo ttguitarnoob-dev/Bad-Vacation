@@ -1,6 +1,6 @@
 
 
-const scenes = [
+let scenes = [
     startingScene0 = {
         text: 'You wake up in your bedroom in the middle of the night.',
         options: ['Walk to the bathroom', 'Pick up your phone', 'Pet the kitty'],
@@ -20,11 +20,10 @@ const optionsButtons = document.getElementById("choice-btns")
 const sceneText = document.getElementById("text")
 let currentScene = scenes[0]
 const restart = document.getElementById('restart-button')
+let inventory = []
+let items = document.getElementById('inventory')
 
-restart.addEventListener('click', function(){
-    startGame()
-    window.location.reload()
-})
+
 function startGame(){
     // currentScene = scenes[0]
     setScene(0)
@@ -32,7 +31,7 @@ function startGame(){
 
 function setScene(scene){
     currentScene = scenes[scene]
-    console.log(currentScene)
+    // console.log(currentScene)
     sceneText.innerText = currentScene.text
     while (optionsButtons.firstChild){
         optionsButtons.removeChild(optionsButtons.firstChild)
@@ -61,19 +60,26 @@ function choiceMade(e){
                 if (boxClicked === 'btnid0'){
                     setScene(1)
                 } else if (boxClicked === 'btnid1'){
-                    console.log('ringring')
+                    inventory.push("Phone")
+                    addItem('Phone')
                 } else if (boxClicked === 'btnid2'){
                     console.log('purrpurrpurrCHOMP')
+                } else if (boxClicked === 'btnid3'){
+                    removeItem('Phone')
+                }
+                if (inventory.includes('Phone')){
+                    scenes[1].options.push('Throw your phone in the trash')
                 }
                 return 
             }
+            
             if (currentScene === scenes[1]) {
                 if (boxClicked === 'btnid0'){
                     gameOver('you pooped so hard that your liver came out and you died')
                 } else if (boxClicked === 'btnid1'){
                     setScene(2)
                 } else if (boxClicked === 'btnid2'){
-                    console.log('purrpurrpurrCHOMP')
+                    removeItem('Phone')
                 }
                 return
             }
@@ -93,6 +99,30 @@ function choiceMade(e){
 
 }
 
+function addItem(item){
+    let li = document.createElement('li')
+    li.innerText = item
+    li.setAttribute('id', item)
+    items.appendChild(li)
+
+    // if (items.length >= 1){
+    // while (items.firstChild){
+    //     items.removeChild(optionsButtons.firstChild)
+    // }
+    // }
+    // inventory.forEach((item)=>{
+    //     let li = document.createElement('li')
+    //     li.innerText = item
+    //     items.appendChild(li)
+    // })
+}
+
+function removeItem(item){
+    let li = document.getElementById(item)
+    li.remove()
+    inventory = inventory.filter(e => e !== item)
+}
+
 function gameOver(message){
     box = document.getElementById('game-over')
     box.style.display = "flex"
@@ -104,4 +134,29 @@ function gameWin(message){
     box.innerText = message
 }
 
+restart.addEventListener('click', function(){
+    startGame()
+    window.location.reload()
+})
+
 startGame()
+
+//templates
+
+//4 button scene
+// if (currentScene === scenes[0]) {
+//     if (boxClicked === 'btnid0'){
+        
+//     } else if (boxClicked === 'btnid1'){
+        
+//     } else if (boxClicked === 'btnid2'){
+        
+//     } else if (boxClicked === 'btnid3'){
+        
+//     } 
+
+//add option to scene on item pickup
+// if (inventory.includes('Phone')){
+//     console.log(currentScene, 'helllooooo')
+//     scenes[1].options.push('Throw your phone in the trash')
+// }

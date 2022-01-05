@@ -39,6 +39,22 @@ body {
     padding: 30px;
 }
 
+#backpack {
+    
+    background-color: black;
+    padding: 10px;
+    min-width: 50px;
+    max-width: 100px;
+    min-height: 30px;
+
+}
+
+#inventory {
+    color: white;
+    
+    
+}
+
 #choice-btns {
     display: grid;
     grid-template-columns: repeat(2, auto);
