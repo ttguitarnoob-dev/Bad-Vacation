@@ -1,31 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
 
 body {
-    font-family: 'Baloo 2', cursive;
-    font-size: 20px;
+    
     background-color:rgb(2, 0, 27);
     background: url("../project-1-game/Image/Render\ 2.jpg");
     background-size: cover;
     color: white;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50vw;
-    height: 55vh;
-
+    /* padding: 0;
+    margin: 0; */
+    /* display: flex;
+    justify-content: space-around;
+    align-items:center; */
+    
 }
 
 .container {
-    
-    width: 700px;
+    justify-content: center;
+    margin: 200px;
+    font-family: 'Baloo 2', cursive;
+    font-size: 20px;
+    /* width: 700px; */
     max-width: 80%;
     padding: 20px;
     background-color: rgba(39, 1, 1, 0.8);
-    border-color: black;
+    border: 3px solid rgb(31, 0, 0);
     border-radius: 6px;
-    box-shadow: 0 0 20px 4px black;
+    box-shadow: 0 0 20px 4px rgb(26, 0, 0);
+    position: absolute;
+    z-index: 1;
+    /* width: 50vw;
+    height: 25vh; */
+
 }
 
 #choice-btns {
@@ -48,6 +53,31 @@ body {
 }
 
 .button:hover {
-    border: 3px solid rgb(255, 196, 196);
+    border: 3px solid rgb(255, 223, 196);
     transform: scale(1.2);
+    
+}
+
+.end-message {
+    /* padding: 70px; */
+    height: 500px;
+    width:fit-content;
+    position: absolute;
+    z-index: 2;
+    background:rgba(39, 1, 1, 0.8);
+    display: flex;
+    /* border: 10px solid rgb(102, 0, 0);
+    border-radius: 20px; */
+    
+    
+}
+
+h1 {
+    font-size: 70px;
+    text-align: center;
+}
+#restart-button {
+    text-align: right;
+    
+
 }
