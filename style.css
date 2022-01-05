@@ -16,10 +16,10 @@ body {
 
 .container {
     justify-content: center;
-    margin: 200px;
+    margin: 130px;
     font-family: 'Baloo 2', cursive;
     font-size: 20px;
-    /* width: 700px; */
+    width: 700px;
     max-width: 80%;
     padding: 20px;
     background-color: rgba(39, 1, 1, 0.8);
@@ -31,6 +31,12 @@ body {
     /* width: 50vw;
     height: 25vh; */
 
+}
+
+#text {
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 7px;
+    padding: 30px;
 }
 
 #choice-btns {

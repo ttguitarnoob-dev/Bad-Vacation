@@ -11,7 +11,7 @@ const scenes = [
         options: ['Ignore the smell and sit on the toilet', 'Walk to the kitchen'],
     },
     kitchenScene2 = {
-        text: "You enter the kitchen and discover that you have literally nothing for breakfast.  How does this happen every day?",
+        text: "You enter the kitchen and discover that you have literally nothing for breakfast.  How does this happen every day? You seriously go to the store to buy milk and cereal every single morning but for some reason it's never there the next morning",
         options: ['Eat a head of lettuce', 'drink water from the faucet']
     }
 ]
@@ -22,7 +22,7 @@ let currentScene = scenes[0]
 const restart = document.getElementById('restart-button')
 
 restart.addEventListener('click', function(){
-    setScene(0)
+    startGame()
     window.location.reload()
 })
 function startGame(){
