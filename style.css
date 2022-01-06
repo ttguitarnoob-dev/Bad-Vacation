@@ -87,7 +87,7 @@ body {
 
 .end-message {
     /* padding: 70px; */
-    height: 500px;
+    
     width:fit-content;
     position: absolute;
     z-index: 2;
