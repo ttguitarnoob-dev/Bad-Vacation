@@ -31,10 +31,14 @@ let scenes = [
         text: "You walk down the hall towards the voices that you heard.  They get louder as you get further down the hall, and eventually you see one of the rooms has a cracked door.  The voices are definitely coming from in there. ",
         options: ['Continue down the hall to the elevator', 'Open the door']
     },
-    openDoor7 = {
-        text:"kjhg",
-        options: [],
+    elevator7 = {
+        text:"You come around the corner and push the elevator call button from the 2nd floor.  Which floor should you go to?",
+        options: ['First Floor', 'Third Floor'],
     },
+    thirdFloor8 = {
+        text: "",
+        options: []
+    }
     //end of array
 ]
 
@@ -131,7 +135,7 @@ function choiceMade(e){
             //talk to woman
             if (currentScene === scenes[4]) {
                     if (boxClicked === 'btnid0'){
-                        setScene(5)
+                        setScene(6)
                     } else if (boxClicked === 'btnid1'){
                         if (inventory.includes('Stuffed Pokemon')){
                             return
@@ -140,6 +144,7 @@ function choiceMade(e){
                         sceneText.innerText = 'Kiara:\n"Thank you so much!  Here take this.  She will trust you if you give her this."\n\nShe hands you a stuffed Pokemon character and you think "Wow this girl must love Pokemon."'
                         }
                     }
+                    return
                 }
                 //walk away from woman
             if (currentScene === scenes[5]) {
@@ -161,12 +166,17 @@ function choiceMade(e){
                     
                     }
                     sceneText.innerText = 'You reach to push open the door, but right as you do, it swings open revealing a very tired looking man in his mid 40s. You ask him if he knows what is going on and he shakes his head slowly side to side.\nMATTHEW:\n"We have yet to reach a solid conclusion, but what we do know is that it aint safe to go outside. I did hear that someone knows of a Doctor staying on the 3rd floor. We were about to send someone up there...hey would you mind going up there and seeing if you can find him? Here take this, we also heard that some of the people are gettin a little crazy. Oh! And make sure you do NOT take the elevator to the 1st floor.  The front door got breached and the air aint breathable."\n He hands you a snapped steel pipe and goes back inside the room.'
-                } else if (boxClicked === 'btnid2'){
-        
-                } else if (boxClicked === 'btnid3'){
-        
-            } 
+                }
+                return
         } 
+            if (currentScene === scenes[7]) {
+                if (boxClicked === 'btnid0'){
+                    gameOver("You ride the elevator down to the first floor.  When the doors open, all of the air gets sucked out of the elevator. Slowly, it becomes difficult to breath and then suddenly black ooze bursts out of your lungs and you collapse in a heap.  GAME OVER")
+                } else if (boxClicked === 'btnid1'){
+                    setScene(8)
+                }
+                return
+        }
             //end of the line
 
 }
