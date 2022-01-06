@@ -20,12 +20,20 @@ let scenes = [
         options: ['Talk to her', 'Walk back down the hall the other way']
     },
     talkWoman4 = {
-        text: 'Kiara: n/    "You have got to help me! I...I woke up to a crash outside my door, and noticed that my daughter was not in her bed.  I have been looking for an hour and there is no sign of her anywhere! I have no idea what else to do...I mean there is only so much space inside this hotel right?  I hope she stayed inside the hotel, because something seems off out there. Please will you let me know if you see her?  She is 6 years old and wearing a Pokemon shirt."',
+        text: 'Kiara:\n    "You have got to help me! I...I woke up to a crash outside my door, and noticed that my daughter was not in her bed.  I have been looking for an hour and there is no sign of her anywhere! I have no idea what else to do...I mean there is only so much space inside this hotel right?  I hope she stayed inside the hotel, because something seems off out there. Please will you let me know if you see her?  She is 6 years old and wearing a Pokemon shirt."',
         options: ['Turn and walk down the hall the other way', '"Yes, I will keep an eye out!"']//if you choose yes, she'll give you a stuffed pokemon, which will populate an option for the scene where you find the child
     },
-    leftVoices5 = {
+    stupid5 = {
+        text: "As you turn to walk away from the woman, you see someone walk inside a door down the hallway.  You hurry to catch up with them and get to the door, which is still cracked.",
+        options: ['Take a deep breath', 'Continue']
+    },
+    leftVoices6 = {
         text: "You walk down the hall towards the voices that you heard.  They get louder as you get further down the hall, and eventually you see one of the rooms has a cracked door.  The voices are definitely coming from in there. ",
-        options: ['Continue walking past the door', 'Open the door']
+        options: ['Continue down the hall to the elevator', 'Open the door']
+    },
+    openDoor7 = {
+        text:"kjhg",
+        options: [],
     },
     //end of array
 ]
@@ -45,7 +53,7 @@ function startGame(){
 
 function setScene(scene){
     currentScene = scenes[scene]
-    // console.log(currentScene)
+    console.log(currentScene)
     sceneText.innerText = currentScene.text
     while (optionsButtons.firstChild){
         optionsButtons.removeChild(optionsButtons.firstChild)
@@ -56,10 +64,10 @@ function setScene(scene){
         button.innerText = options[i]
         button.classList.add('button')
         button.setAttribute('id', 'btnid'+i)
-
         optionsButtons.appendChild(button)
         button.addEventListener('click', function(e){
             choiceMade(e)
+            
         })
            
         }
@@ -105,14 +113,60 @@ function choiceMade(e){
             //exit room and look left and right
             if (currentScene === scenes[2]) {
                 if (boxClicked === 'btnid0'){
-                    gameOver('That lettuce is so rotted that you died')
+                    setScene(6)
                 } else if (boxClicked === 'btnid1'){
-                    gameWin('Your house just happened to have magic water being pumped into it at this moment.  You become a superhero and join the Avengers')
+                    setScene(3)
                 }
                 return
             }
-
-
+            //walk towards woman
+            if (currentScene === scenes[3]) {
+                    if (boxClicked === 'btnid0'){
+                        setScene(4)
+                    } else if (boxClicked === 'btnid1'){
+                        setScene(6)
+                    }
+                    return
+                }
+            //talk to woman
+            if (currentScene === scenes[4]) {
+                    if (boxClicked === 'btnid0'){
+                        setScene(5)
+                    } else if (boxClicked === 'btnid1'){
+                        if (inventory.includes('Stuffed Pokemon')){
+                            return
+                        }else {inventory.push('Stuffed Pokemon')
+                        addItem('Stuffed Pokemon')
+                        sceneText.innerText = 'Kiara:\n"Thank you so much!  Here take this.  She will trust you if you give her this."\n\nShe hands you a stuffed Pokemon character and you think "Wow this girl must love Pokemon."'
+                        }
+                    }
+                }
+                //walk away from woman
+            if (currentScene === scenes[5]) {
+                if (boxClicked === 'btnid0'){
+                    return
+                }else if (boxClicked === 'btnid1'){
+                    setScene(6)
+                        }
+            }
+            //walk towards voices 
+            if (currentScene === scenes[6]) {
+                if (boxClicked === 'btnid0'){
+                    setScene(7)
+                } else if (boxClicked === 'btnid1'){
+                    if (inventory.includes('Steel Pipe')){
+                        return
+                    }else {inventory.push('Steel Pipe')
+                    addItem('Steel Pipe')
+                    
+                    }
+                    sceneText.innerText = 'You reach to push open the door, but right as you do, it swings open revealing a very tired looking man in his mid 40s. You ask him if he knows what is going on and he shakes his head slowly side to side.\nMATTHEW:\n"We have yet to reach a solid conclusion, but what we do know is that it aint safe to go outside. I did hear that someone knows of a Doctor staying on the 3rd floor. We were about to send someone up there...hey would you mind going up there and seeing if you can find him? Here take this, we also heard that some of the people are gettin a little crazy. Oh! And make sure you do NOT take the elevator to the 1st floor.  The front door got breached and the air aint breathable."\n He hands you a snapped steel pipe and goes back inside the room.'
+                } else if (boxClicked === 'btnid2'){
+        
+                } else if (boxClicked === 'btnid3'){
+        
+            } 
+        } 
             //end of the line
 
 }
@@ -172,7 +226,7 @@ startGame()
 //     } else if (boxClicked === 'btnid3'){
         
 //     } 
-
+//  }
 //add option to scene on item pickup
 // if (inventory.includes('Phone')){
 //     console.log(currentScene, 'helllooooo')
