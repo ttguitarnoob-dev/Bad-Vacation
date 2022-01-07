@@ -25,6 +25,7 @@ Focus on functionality before narrative
         Game over system
         Game win system
 
+
 Daily Goals:
     
     Monday: Interface and functionality experiments
@@ -33,8 +34,11 @@ Daily Goals:
     Thursday: Finish narrative
     Friday: Polishing
 
-stuff to add later: 
- give player steel pipe in scene 17 if they don't already have it, and include different dialogue in that instance.
- background changing with scenes
- background ambient sound/music
- add array that keeps track of who you have met, what you have interacted with...to make it possible to revisit scenes, but keep the progress of the story.
+
+Stuff to add later:
+
+    give player steel pipe in scene 17 if they don't already have it, and include different dialogue in that instance.
+    background changing with scenes
+    background ambient sound/music
+    add array that keeps track of who you have met, what you have interacted with...to make it possible to revisit scenes, but keep the progress of the story.
+    add character portait to dialogue scenes

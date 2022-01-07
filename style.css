@@ -97,8 +97,8 @@ body {
 }
 
 #end-message {
-    display: none;
-    margin: 5px;
+    position: absolute;
+    top: 200px;
     padding: 20px;
     font-family: 'Carrois Gothic SC', sans-serif;
     width:fit-content;

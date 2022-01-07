@@ -79,17 +79,38 @@ let scenes = [
         options: ['Flip the body over', 'Check the beach specimens'],
     },
     outsideBeach19 = {
-        text: 'You walk up to the smashed front doors and cautiously poke your head out to look both ways. There is no sign of movement anywhere and it stirs your heart with an uncomfortable edge. You scan the edge of the beach for the closest collapsed person, and begin to walk towards it. As you get closer, you notice that the ooze came from the chest of each person that was consumed by it, so Dr. Hanover must be right about the air being unsafe to breath.  You nervously fidget with your breathing regulator as you walk.  Finally, you reach the closest person and ',
-        options: ['smell'],
+        text: 'You walk up to the smashed front doors and cautiously poke your head out to look both ways. There is no sign of movement anywhere and it stirs your heart with an uncomfortable edge. You scan the edge of the beach for the closest collapsed person, and begin to walk towards it. As you get closer, you notice that the ooze came from the chest of each person that was consumed by it, so Dr. Hanover must be right about the air being unsafe to breath.  You nervously fidget with your breathing regulator as you walk.  Finally, you reach the closest person and kneel down to take a look.  It is a young man that appeared to be here to do some snorkeling.  He is laying flat on his back and the ooze covers him from head to toe, pooling all around his body.',
+        options: ['Collect ooze sample','Return to hotel'], //collect will remove container from inventory and replace it with sample, which will populate an option when you return to hotel. If you don't collect, the button will not be there and you will have to return to scene 19
     },
     flipBody20 = {
-        text: "You reach out and flip the body over, but when it's halfway flipped, its arms swing around and throw you 10 feet, landing on your back near the far wall of the dining room. Gasping, and quickly checking to see if your regulator is still secure, you sit up and see it staggering toward you.  Its chest is severely swollen and pulsating all over as the figure struggles for air. Its eyes have gone all black, and the pupils are so wide that the iris is torn in half.  As it gets closer, you can see the inside of the eyeballs are full of black ooze. You start to panic as it approaches you and picks up speed, but stand up to face it with a burst of adrenaline because there's nowhere to run.", //add options for phone and steel pipe here....also if choose to shine flashlight, add option to mention that to the dr.
+        text: "You reach out and flip the body over, but when it's halfway flipped, its arms swing around and throw you 10 feet, landing on your back near the far wall of the dining room. Gasping, and quickly checking to see if your regulator is still secure, you sit up and see it staggering toward you.  Its chest is severely swollen and pulsating all over as the figure struggles for air. Its eyes have gone all black, and the pupils are so wide that the iris is torn in half.  As it gets closer, you can see the inside of the eyeballs are full of black ooze. You start to panic as it approaches you and picks up speed, but stand up to face it with a burst of adrenaline because there's nowhere to run.", //add options for phone and steel pipe here....also maybe if choose to shine flashlight, add option to mention that to the dr. after he finishes the test
         options: ['Punch the figure'],
     },
     shineLight21 = {
         text: "With a sudden inspiration, you look again at the creature's unnaturally large pupils. You quickly turn on your phone's flashlight and shine it directly in one of the eyes at close range. The ooze inside violently shoots out of the eye, and evaporates into a cloud of sparkling black air. You do the same to the other eye, and then the mouth.  As you hold the light on the ooze in its mouth, it shudders and convulses as the chest gets smaller and smaller.  Eventually, there is no more evaporating ooze, and the figure collapses on the floor, breathing heavily. You jump over it and run back to the door way and wait for it to move again.  After several minutes, it stops moving completely and appears lifeless. You slide down the wall to a sitting position and take a moment to breath and process what just happened.",
         options: ["Check the beach specimens"],
     },
+    returnHotel22 = {
+        text: 'You pocket the Sample Container again and make your way slowly back to the hotel. Your breathing is getting heavy despite the oxygen mask, and you push yourself to get there faster. You stagger into the lobby and press the elevator call button.  You are just about to lose breath when it opens.  You quickly press the 3rd floor button and gasp, ripping off the mask as the doors open into the fresh air inside the hallway.  You make your way to room 309 and Dr. Hanover welcomes you in with an expectant smile.',
+        options: ['Return to the beach specimen'],
+    },
+    handOoze23 = {
+        text: 'DR. HANOVER:\n"Ooooh I knew you could do it! Wow am I glad you survived. I honestly had no idea if that scuba suit would protect you or not. Well, only thing left to do is run these tests.  Here, put this on."\n\nHe takes the Ooze sample from you and hands you a gas mask to wear while he empties the ooze into a test vial. He gets fast to work, muttering to himself the whole time while you go and sit on his bed and wait for the tests to finish. You fall asleep for about 30 minutes and wake up to an excited shout.',
+        options: ["What did you find?"],
+    },
+    leapOfFaith24 = {
+        text: 'DR. HANOVER:\n"What I found....is something I did not expect to find. It was as simple as looking at the ooze through a microscope.  This ooze is comprised of nothing but antibodies.  Human antibodies.  It is not toxic in any way.  In fact, I took a leap of faith and ingested some.  My theory is that when those poor folks outside breathed the air, their bodies reacted so strongly to the unknown contaminants that their antibodies went crazy and the body could not contain the extra pressure.  I am guessing that I am now immune to the air outside. You want to take a leap of faith too?\n\nHe hands you a vial of black ooze with a grin.',
+        options: ["Drink the black ooze"],
+    },
+    finalChoice25 = {
+        text: 'You slowly reach to grab the vial from Dr. Hanover, never breaking eye contact in an unsure gaze. He seems totally fine, and if you think about it, there is not much to lose in this situation.  You will die today either way if you refuse. You finally break your gaze and down the whole vial in one swallow. You feel slightly nauseous at first, but otherwise totally fine. Dr. Hanover rushes to the balcony doors and drags them open before you can protest.  All of the air in your room rushes out and is replaced by dark fog, but your breathing remains easy. The two of you exchange important glances and then agree that there is only one thing left to do.',
+        options: ['Go enjoy your vacation', 'Spread the news to survivors'],
+    },
+    questPrep26 = {
+        text: 'DR. HANOVER:\n"I think what we need to do is venture out and see if there are any other survivors first and foremost.  But after that, our main goal needs to alert the scientific community to what we have found and start mass producing antidotes from these antibodies. You should head North to the mainland and start there, probably in Miami.  I have a few contacts you can try, but you will probalby have more luck trying to find other groups of survivors. I am going to take my plane back to Cali and find someone from my University.  That will be the best place to start. I wish you the best of luck, my friend."\n\n',
+        options: [],
+    },
+
 
     //end of array
 ]
@@ -105,6 +126,7 @@ let items = document.getElementById('inventory')
 function startGame(){
     // currentScene = scenes[0]
     setScene(0)
+    
 }
 
 function setScene(scene){
@@ -152,6 +174,7 @@ function choiceMade(e){
                     return
                 }else if(inventory.includes('Phone')){
                     scenes[1].options.push('Call 911 now!')
+                    scenes[20].options.push('Shine phone light at it')
                 }
                 return 
             }
@@ -220,9 +243,14 @@ function choiceMade(e){
                         return
                     }else {inventory.push('Steel Pipe')
                     addItem('Steel Pipe')
-                    
                     }
                     sceneText.innerText = 'You reach to push open the door, but right as you do, it swings open revealing a very tired looking man in his mid 40s. You ask him if he knows what is going on and he shakes his head slowly side to side.\nMATTHEW:\n"We have yet to reach a solid conclusion, but what we do know is that it aint safe to go outside. I did hear that someone knows of a Doctor staying on the 3rd floor. I think it was room 309. We were about to send someone up there...hey would you mind going up there and seeing if you can find him? Here take this, we also heard that some of the people are gettin a little crazy. Oh! And make sure you do NOT take the elevator to the 1st floor.  The front door got breached and the air aint breathable."\n He hands you a snapped steel pipe and goes back inside the room.'
+                }
+                if (scenes[20].options.includes('Hit it with the pipe!')){
+                    return
+                }else if(inventory.includes('Steel Pipe')){
+                    scenes[20].options[1] = 'Shine light at it!'
+                    scenes[20].options[2] = 'Hit it with the pipe!'
                 }
                 return
         } //elevator
@@ -339,7 +367,79 @@ function choiceMade(e){
                             setScene(19)
                         }
                         return
-                    }
+                    }//dining room
+                    if (currentScene === scenes[18]) {
+                        if (boxClicked === 'btnid0'){
+                            setScene(20)
+                        } else if (boxClicked === 'btnid1'){
+                            setScene(19)
+                        }
+                        return
+                    }//monster fight
+                    if (currentScene === scenes[20]) {
+                        if (boxClicked === 'btnid0'){
+                            gameOver("You punch the figure hard in the face and it staggers back one step.  Its nose broke but that didn't hurt it at all, and it becomes enraged.  It charges at you again with arms swinging wildly in all directions.  One arm catches your breathing regulator and it gets ripped from your face. You try to run, but your breathing gets heavy and suddenly black ooze bursts from your lungs and you collapse in a heap.  GAME OVER")
+                        } else if (boxClicked === 'btnid1'){
+                            if (scenes[23].options.includes('Mention shining light at the ooze')){
+                                return
+                            } else {
+                                scenes[23].options.push('Mention shining light at the ooze')
+                            }
+                            setScene(21)
+                        } else if (boxClicked === 'btnid2'){
+                            gameOver("You smack the figure hard in the face and it staggers back one step.  Its skull caved in but that didn't hurt it at all, and it becomes enraged.  It charges at you again with arms swinging wildly in all directions.  One arm catches your breathing regulator and it gets ripped from your face. You try to run, but your breathing gets heavy and suddenly black ooze bursts from your lungs and you collapse in a heap.  GAME OVER")
+                        }
+
+                        return
+                    }//shine light
+                    if (currentScene === scenes[21]) {
+                        if (boxClicked === 'btnid0'){
+                            setScene(19)
+                        }
+                        return
+                    }//beach
+                    if (currentScene === scenes[19]) {
+                            if (boxClicked === 'btnid0'){
+                                removeItem('Sample Container')
+                                if (inventory.includes('Ooze Sample')){
+                                    return
+                                }else {inventory.push("Ooze Sample")
+                                addItem('Ooze Sample')
+                                if (scenes[22].options.includes('Hand him the Ooze Sample')){
+                                return
+                            }else if(inventory.includes('Ooze Sample')){
+                                scenes[22].options.push('Hand him the Ooze Sample')
+                               
+                            }
+                                }
+                                setScene(22)
+                            } else if (boxClicked === 'btnid1'){
+                                setScene(22)
+                            }
+                            return
+                        }//bring sample to dr.
+                        if (currentScene === scenes[22]) {
+                            if (boxClicked === 'btnid0'){
+                                setScene(19)
+                            } else if (boxClicked === 'btnid1'){
+                                setScene(23)
+                            }
+                            return
+                        }//finished experiments
+                        if (currentScene === scenes[23]) {
+                            if (boxClicked === 'btnid0'){
+                                setScene(24)
+                            } else if (boxClicked === 'btnid1'){
+                                sceneText.innerText = 'DR. HANOVER:\n"Well there is something I never would have guessed in any kind of research.  You may be onto something there, though I have no guess as to why the lights in this room have no effect on it.  Maybe it has to be a certain type of LED.  Adding that to my list of research points, thank you!"\n\nHe glances back at his experiment table.'
+                            }
+                            return
+                        }//leap of faith
+                        if (currentScene === scenes[24]) {
+                            if (boxClicked === 'btnid0'){
+                                setScene(25)
+                            }
+                            return
+                        }
             //end of the line
 
 }
