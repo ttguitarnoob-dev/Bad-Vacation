@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Carrois+Gothic+SC&display=swap');
 
 body {
     
@@ -16,40 +16,49 @@ body {
 }
 
 .container {
-    justify-content: center;
-    margin: 130px;
+    position: relative;
+    top: 130px;
+    left: 200px;
+    /* margin: 130px; */
     font-family: 'Baloo 2', cursive;
     font-size: 20px;
     width: 700px;
     max-width: 80%;
     padding: 20px;
-    background-color: rgba(39, 1, 1, 0.8);
-    border: 3px solid rgb(31, 0, 0);
+    /* background-color: rgba(39, 1, 1, 0.8); */
+    background-image: url("../project-1-game/Image/darkbackground.png");
+    border: 1px solid rgb(54, 19, 19);
     border-radius: 6px;
-    box-shadow: 0 0 20px 4px rgb(26, 0, 0);
-    position: absolute;
-    z-index: 1;
+    box-shadow: 0 0 10px 4px rgb(0, 0, 0);
+    
+    /* z-index: 1; */
     /* width: 50vw;
     height: 25vh; */
 
 }
 
+
+
 #text {
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid rgb(92, 54, 54);
     border-radius: 7px;
     padding: 30px;
 }
 
 #backpack {
-    
+    margin: 10px;
+    position: absolute;
+    bottom: 70px;
+    right: 100px;
     background-color: black;
-    border: 3px solid rgb(165, 97, 42);
+    background-image: url("../project-1-game/Image/backpack\ texture.jpeg");
+    border: 3px solid rgba(165, 108, 79, 0.6);
     border-radius: 30px;
-    padding: 10px;
-    min-width: 50px;
+    padding: 5px;
+    min-width: 100px;
     max-width: 200px;
     min-height: 30px;
-    box-shadow: 0 0 20px 4px rgb(26, 0, 0);
+    box-shadow: 0 0 10px 4px rgb(0, 0, 0);
 
 }
 
@@ -71,8 +80,10 @@ body {
     height: 60px;
     font-size: 20px;
     background-color: rgb(0, 22, 56);
+    background-image: url("../project-1-game/Image/button\ texture.jpeg");
     color: white;
-    border: 3px solid black;
+    
+    border: 3px solid rgb(92, 54, 54);
     border-radius: 7px;
     box-shadow: 0 0 20px 4px black;
     cursor: pointer;
@@ -80,18 +91,20 @@ body {
 }
 
 .button:hover {
-    border: 3px solid rgb(255, 223, 196);
+    border: 3px solid rgb(161, 35, 35);
     transform: scale(1.2);
     
 }
 
-.end-message {
-    /* padding: 70px; */
-    
+#end-message {
+    display: none;
+    margin: 5px;
+    padding: 20px;
+    font-family: 'Carrois Gothic SC', sans-serif;
     width:fit-content;
     position: absolute;
     z-index: 2;
-    color: red;
+    color: rgb(173, 0, 0);
     background:rgba(7, 0, 0, 0.8);
     display: flex;
     /* border: 10px solid rgb(102, 0, 0);

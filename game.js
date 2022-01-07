@@ -1,7 +1,3 @@
-//stuff to add later: 
-//  give player steel pipe in scene 17 if they don't already have it, and include the dialogue in that instance.
-//  background changing with scenes
-//  background ambient sound/music
 
 let scenes = [
     startingScene0 = {
@@ -10,7 +6,7 @@ let scenes = [
 
     },
     openCurtain1 = {
-        text: "You walk over to the main balcony doors, open the curtains and gasp in disbelief.  The palm trees lining the ocean are missing all their leaves, and black ooze is dripping down the trunks. The water is an unpleasant red color, and there are people lying on the beach and street, covered in the same black ooze and not moving at all. ",
+        text: "You walk over to the main balcony doors, open the curtains and gasp in disbelief.  The palm trees lining the ocean are missing all their leaves, and black ooze is dripping down the trunks. The water is an unpleasant red color, and there are people lying on the beach and street, covered in the same black ooze and not moving at all. It's almost impossible to see further than 100 feet because the air is thick with a blackish fog that obscures nearly all of the sun's light.",
         options: ['Open the balcony doors', 'Exit your room to search for more information'],
     },
     exitRoom2 = {
@@ -24,7 +20,7 @@ let scenes = [
     },
     talkWoman4 = {
         text: 'KIARA:\n    "You have got to help me! I...I woke up to a crash outside my door, and noticed that my daughter was not in her bed.  I have been looking for an hour and there is no sign of her anywhere! I have no idea what else to do...I mean there is only so much space inside this hotel right?  I hope she stayed inside the hotel, because something seems off out there. Please will you let me know if you see her?  She is 6 years old and wearing a Pokemon shirt."',
-        options: ['Turn and walk down the hall the other way', '"Yes, I will keep an eye out!"']//if you choose yes, she'll give you a stuffed pokemon, which will populate an option for the scene where you find the child
+        options: ['Turn and walk down the hall the other way', '"Yes, I will keep an eye out!"']
     },
     stupid5 = {
         text: 'The childs eyes go wide and she lets out an excited shriek when she sees the Stuffed Pokemon.\nHAZEL:\n"Charmy!! My mom gave that to you didnt she? I wanted to go back, but I lost the door to the stairs and the man by the elevator told me not to use it, but I didnt want to stay in the room with those goo monsters looking in the window."\n\nHer eyes get scared again, and she grabs the Stuffed Pokemon from you. You extend your hand and she takes it.  You take her back down to the 2nd floor, but her mom is no longer in the hallway.  Hazel runs over to room 208 and knocks. Kiara opens the door and bursts into happy tears. She thanks you profusely and they retreat into the room. That felt good! You remember that you have yet to explore the rooms on the 3rd floor.',
@@ -44,11 +40,11 @@ let scenes = [
     },
     leftPool9 = {
         text: "You turn left and walk towards the Swimming Pool area.  There is a single door leading into a large room containing a pool and hot tub.  You enter the room and look around.  There is an old man sitting on one of the beach chairs reading a book. On the other side of him is a set of doors for Men's and Women's locker rooms, and at the end of that same wall is a door that leads to a Sauna.",
-        options: ["Look in the Men's locker room", "Look in the Women's locker room", "Talk to the old man", "Look in the Sauna"],//only sauna will be a new scene.  Hazel is inside. 
+        options: ["Look in the Men's locker room", "Look in the Women's locker room", "Talk to the old man", "Look in the Sauna"], 
     },
     sauna10 = {
         text: "You walk over to the Sauna door and push it open. You look around and at first it seems to be empty.  You are about to leave when you hear a soft squeak from behind the door.  You look around the door and see a little girl hiding behind it looking up at you in fear.",
-        options: ['Try to talk to her', 'Offer her your hand', 'Go back into the pool room'], //this will populate with an option to give her the pokemon toy if you accepted the offer from Kiara
+        options: ['Try to talk to her', 'Offer her your hand', 'Go back into the pool room'],
     },
     poolAgain11 = {
         text: "You go back into the pool room. What do you do before checking the rooms on the other side of the hallway?",
@@ -56,11 +52,11 @@ let scenes = [
     },
     roomsRight12 = {
         text: "You head over to the side of the hall containing all of the rooms.  It's peculiar because most of the doors are wide open, and as you walk by them it doesn't seem that anyone is in them.  Rooms 305 and 309 are the only ones closed.",
-        options: ['Yell into each room', 'Knock on 305', 'Knock on 309'], //only 309 has new scene.  yell causes dr to peek out of 309 and then close the door again.  knock on 305 is just nobody answered.
+        options: ['Yell into each room', 'Knock on 305', 'Knock on 309'],
     },
     findDoctor13 = {
         text: 'You knock on room 309. After about 10 seconds the door opens a crack, held in place by the chain. You can see a wide eye peeking out from the inside.\nDR.HANOVER:\n"What do you want? Did Matthew send you? Oh that does not matter what matters is the anomalous situation outside, have you looked out there? My bet is that it is very unwise to go outside, at least without proper precautions, which is why I was hoping someone would come up here. Thing is, I was here for a biology conference and just happen to have some test equipment, and I would love to take a look at that black substance that the people outside have secreted. A vacationing diver brought me his oxygen tank and regulator, but problem is, my head is too small for the damn thing and it leaks right above my nose.  Hey, you want to take a shot at it?',
-        options: ['"Not a good idea..."', '"Sure, what do you need me to do?"'], //only sure makes new scene. no makes dr mad and give you no choice but to agree
+        options: ['"Not a good idea..."', '"Sure, what do you need me to do?"'],
     },
     gooMissionAccept14 = {
         text: 'DR. HANOVER\n"Ok thank you...so really all I need is a small sample of that unknown substance.  I will give you a sealed container to put it in, and make sure it seals completely because last thing we need is to expose that to the air in this hotel. Should be pretty simple, just take the elevator to the first floor and find the nearest specimen and take a sample.  Here, let me get you fitted up."\nHe hands you a small sample container and fits the diving gear to your back and face.  It fits perfectly and the fresh oxygen revitalizes you. Dr. Hanover pats your back and gives you a reassuring nod.',
@@ -76,15 +72,23 @@ let scenes = [
     },
     secondFloor17 = {
         text: "You ride the elevator to the Second floor, and see Matthew leaning against the frame of his room, talking to someone just inside. ",
-        options: ['Take elevator to 1st floor', 'Speak to Matthew'], //elevator will load scene 16, speak will change text to matthew's monologue
+        options: ['Take elevator to 1st floor', 'Speak to Matthew'],
     },
     diningRoom18 = {
-        text: 'lksdjf',
-        options: ['really smell'],
+        text: "You walk into the dining room towards the figure on the floor and notice that it does't appear to be covered in ooze like the rest.  That's pointless if you are trying to gather a sample of ooze. Maybe the ooze is underneath the body.",
+        options: ['Flip the body over', 'Check the beach specimens'],
     },
     outsideBeach19 = {
-        text: 'lkfjoi',
+        text: 'You walk up to the smashed front doors and cautiously poke your head out to look both ways. There is no sign of movement anywhere and it stirs your heart with an uncomfortable edge. You scan the edge of the beach for the closest collapsed person, and begin to walk towards it. As you get closer, you notice that the ooze came from the chest of each person that was consumed by it, so Dr. Hanover must be right about the air being unsafe to breath.  You nervously fidget with your breathing regulator as you walk.  Finally, you reach the closest person and ',
         options: ['smell'],
+    },
+    flipBody20 = {
+        text: "You reach out and flip the body over, but when it's halfway flipped, its arms swing around and throw you 10 feet, landing on your back near the far wall of the dining room. Gasping, and quickly checking to see if your regulator is still secure, you sit up and see it staggering toward you.  Its chest is severely swollen and pulsating all over as the figure struggles for air. Its eyes have gone all black, and the pupils are so wide that the iris is torn in half.  As it gets closer, you can see the inside of the eyeballs are full of black ooze. You start to panic as it approaches you and picks up speed, but stand up to face it with a burst of adrenaline because there's nowhere to run.", //add options for phone and steel pipe here....also if choose to shine flashlight, add option to mention that to the dr.
+        options: ['Punch the figure'],
+    },
+    shineLight21 = {
+        text: "With a sudden inspiration, you look again at the creature's unnaturally large pupils. You quickly turn on your phone's flashlight and shine it directly in one of the eyes at close range. The ooze inside violently shoots out of the eye, and evaporates into a cloud of sparkling black air. You do the same to the other eye, and then the mouth.  As you hold the light on the ooze in its mouth, it shudders and convulses as the chest gets smaller and smaller.  Eventually, there is no more evaporating ooze, and the figure collapses on the floor, breathing heavily. You jump over it and run back to the door way and wait for it to move again.  After several minutes, it stops moving completely and appears lifeless. You slide down the wall to a sitting position and take a moment to breath and process what just happened.",
+        options: ["Check the beach specimens"],
     },
 
     //end of array
@@ -365,16 +369,19 @@ function removeItem(item){
 }
 
 function gameOver(message){
-    box = document.getElementById('game-over')
-    box.style.display = "flex"
-    box.innerText = message
+    var dead = document.createElement('h1')
+    var text = document.createTextNode(message)
+    dead.setAttribute('id', 'end-message')
+    dead.appendChild(text)
+    document.body.appendChild(dead)
 }
 function gameWin(message){
-    box = document.getElementById('game-win')
-    box.style.display = "flex"
-    box.innerText = message
+    var win = document.createElement('h1')
+    var text = document.createTextNode(message)
+    win.setAttribute('id', 'win-message')
+    win.appendChild(text)
+    document.body.appendChild(win)
 }
-
 restart.addEventListener('click', function(){
     startGame()
     window.location.reload()
