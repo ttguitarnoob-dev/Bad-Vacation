@@ -1,4 +1,7 @@
-
+//stuff to add later: 
+//  give player steel pipe in scene 17 if they don't already have it, and include the dialogue in that instance.
+//  background changing with scenes
+//  background ambient sound/music
 
 let scenes = [
     startingScene0 = {
@@ -32,7 +35,7 @@ let scenes = [
         options: ['Continue down the hall to the elevator', 'Open the door']
     },
     elevator7 = {
-        text:"You come around the corner and push the elevator call button from the 2nd floor.  Which floor should you go to?",
+        text: "You come around the corner and push the elevator call button from the 2nd floor.  Which floor should you go to?",
         options: ['First Floor', 'Third Floor'],
     },
     thirdFloor8 = {
@@ -63,10 +66,27 @@ let scenes = [
         text: 'DR. HANOVER\n"Ok thank you...so really all I need is a small sample of that unknown substance.  I will give you a sealed container to put it in, and make sure it seals completely because last thing we need is to expose that to the air in this hotel. Should be pretty simple, just take the elevator to the first floor and find the nearest specimen and take a sample.  Here, let me get you fitted up."\nHe hands you a small sample container and fits the diving gear to your back and face.  It fits perfectly and the fresh oxygen revitalizes you. Dr. Hanover pats your back and gives you a reassuring nod.',
         options: ['Continue to Elevator'],
     },
-    firstFloor15 = {
-        text: "",
-        options: [],
+    elevatorAgain15 = {
+        text: "You walk over to the elevator. Which floor should you go to?",
+        options: ['First floor', 'Second floor'],
     },
+    firstFloor16 = {
+        text: "You ride the elevator down to the first floor, and the moment the doors open up you are glad you have a breathing apparatus.  The air is visibly thick, and you can smell a pungent odor even through the mask.  The lobby of the hotel is completely empty, and the front doors are a mangled mass of metal in the street outside.  You see a crumpled figure in the shadows of the dining room area, and several more bodies covered in ooze out near the beach. Any of these bodies should contain what Dr. Hanover was looking for.",
+        options: ['Check the dining room specimen', 'Check the beach specimens'],
+    },
+    secondFloor17 = {
+        text: "You ride the elevator to the Second floor, and see Matthew leaning against the frame of his room, talking to someone just inside. ",
+        options: ['Take elevator to 1st floor', 'Speak to Matthew'], //elevator will load scene 16, speak will change text to matthew's monologue
+    },
+    diningRoom18 = {
+        text: 'lksdjf',
+        options: ['really smell'],
+    },
+    outsideBeach19 = {
+        text: 'lkfjoi',
+        options: ['smell'],
+    },
+
     //end of array
 ]
 
@@ -209,7 +229,7 @@ function choiceMade(e){
                     setScene(8)
                 }
                 return
-        }
+            }//3rd floor
         if (currentScene === scenes[8]) {
             if (boxClicked === 'btnid0'){
                 setScene(9)
@@ -217,7 +237,7 @@ function choiceMade(e){
                 setScene(12)
             }
             return
-        }
+        }//pool area
         if (currentScene === scenes[9]) {
                 if (boxClicked === 'btnid0'){
                     sceneText.innerText = "You enter the Men's locker room and look around, but there is nobody in there so you go back out to the main pool room."
@@ -229,7 +249,7 @@ function choiceMade(e){
                     setScene(10)
                 } 
                 return
-             }
+             }//girl in sauna
              if (currentScene === scenes[10]) {
                     if (boxClicked === 'btnid0'){
                         sceneText.innerText = "When you speak, her eyes get wider and she shrinks further into the corner."
@@ -242,7 +262,7 @@ function choiceMade(e){
                         setScene(5)
                     } 
                     return
-                 }
+                 }//return girl to mom
                  if (currentScene === scenes[5]) {
                     if (boxClicked === 'btnid0'){
                         setScene(12)
@@ -250,7 +270,7 @@ function choiceMade(e){
                         setScene(12)
                     }
                     return
-                }
+                }//pool again
                 if (currentScene === scenes[11]) {
                     if (boxClicked === 'btnid0'){
                         sceneText.innerText = "You enter the Men's locker room and look around, but there is nobody in there so you go back out to the main pool room."
@@ -262,7 +282,7 @@ function choiceMade(e){
                         setScene(12)
                     } 
                     return
-                 }
+                 }//3rd floor room explore
                  if (currentScene === scenes[12]) {
                         if (boxClicked === 'btnid0'){
                             sceneText.innerText = "You walk down the hall yelling into each room to see if anyone answers. After you yell into room 307, the door to 309 opens and an angry looking head pokes out and yells at you to keep it down. He shuts the door with frustration."
@@ -272,7 +292,7 @@ function choiceMade(e){
                             setScene(13)
                         }
                         return
-                     }
+                     }//find Dr.
                      if (currentScene === scenes[13]) {
                         if (boxClicked === 'btnid0'){
                             sceneText.innerText = 'DR. HANOVER:\n"Look here, bud. You think I wouldnt go right now if this regulator fit my face? Grow some balls man, I know you got a sense that the situation out there is dangerous, so why not try to help someone? You gonna do this?"'
@@ -285,10 +305,34 @@ function choiceMade(e){
                             setScene(14)
                         }
                         return
-                    }
+                    }//accept mission
                     if (currentScene === scenes[14]) {
                         if (boxClicked === 'btnid0'){
                             setScene(15)
+                        }
+                        return
+                    }//elevator again
+                    if (currentScene === scenes[15]) {
+                        if (boxClicked === 'btnid0'){
+                            setScene(16)
+                        } else if (boxClicked === 'btnid1'){
+                            setScene(17)
+                        }
+                        return
+                    }//second floor again
+                    if (currentScene === scenes[17]) {
+                        if (boxClicked === 'btnid0'){
+                            setScene(16)
+                        } else if (boxClicked === 'btnid1'){
+                            sceneText.innerText = 'MATTHEW:\n"Well hey man, you look like you just spoke to the Dr. Did he convince you to go out there?  Collect a specimen huh...wonder what he wants with that...good luck out there.  I would join ya, but there are no more breathing apparatus in this entire hotel.  Funny because we are in a prime scuba diving locale, but what can you do. Just let me know if I can help in any other way."'
+                        }
+                        return
+                    }//first floor
+                    if (currentScene === scenes[16]) {
+                        if (boxClicked === 'btnid0'){
+                            setScene(18)
+                        } else if (boxClicked === 'btnid1'){
+                            setScene(19)
                         }
                         return
                     }
