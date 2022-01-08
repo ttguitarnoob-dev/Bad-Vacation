@@ -100,15 +100,19 @@ let scenes = [
     },
     leapOfFaith24 = {
         text: 'DR. HANOVER:\n"What I found....is something I did not expect to find. It was as simple as looking at the ooze through a microscope.  This ooze is comprised of nothing but antibodies.  Human antibodies.  It is not toxic in any way.  In fact, I took a leap of faith and ingested some.  My theory is that when those poor folks outside breathed the air, their bodies reacted so strongly to the unknown contaminants that their antibodies went crazy and the body could not contain the extra pressure.  I am guessing that I am now immune to the air outside. You want to take a leap of faith too?\n\nHe hands you a vial of black ooze with a grin.',
-        options: ["Drink the black ooze"],
+        options: ["DRINK THE BLACK OOZE!"],
     },
     finalChoice25 = {
         text: 'You slowly reach to grab the vial from Dr. Hanover, never breaking eye contact in an unsure gaze. He seems totally fine, and if you think about it, there is not much to lose in this situation.  You will die today either way if you refuse. You finally break your gaze and down the whole vial in one swallow. You feel slightly nauseous at first, but otherwise totally fine. Dr. Hanover rushes to the balcony doors and drags them open before you can protest.  All of the air in your room rushes out and is replaced by dark fog, but your breathing remains easy. The two of you exchange important glances and then agree that there is only one thing left to do.',
         options: ['Go enjoy your vacation', 'Spread the news to survivors'],
     },
     questPrep26 = {
-        text: 'DR. HANOVER:\n"I think what we need to do is venture out and see if there are any other survivors first and foremost.  But after that, our main goal needs to alert the scientific community to what we have found and start mass producing antidotes from these antibodies. You should head North to the mainland and start there, probably in Miami.  I have a few contacts you can try, but you will probalby have more luck trying to find other groups of survivors. I am going to take my plane back to Cali and find someone from my University.  That will be the best place to start. I wish you the best of luck, my friend."\n\n',
-        options: [],
+        text: 'DR. HANOVER:\n"I think what we need to do is venture out and see if there are any other survivors first and foremost.  But after that, our main goal needs to alert the scientific community to what we have found and start mass producing antidotes from these antibodies. You should head North to the mainland and start there, probably in Miami.  I have a few contacts you can try, but you will probalby have more luck trying to find other groups of survivors. I am going to take my plane back to Cali and find someone from my University.  That will be the best place to start. I wish you the best of luck, my friend."\n\nDr. Hanover starts packing various things in a suitcase after shaking your hand.  You turn and make your way down to the second floor to gather what you will need from your room. You get all of the necessities together and take one last look around the room to make sure there is nothing else you will need.',
+        options: ["Head to your rental car"],
+    },
+    findKiara27 = {
+        text: 'Which room were they in again? 208? You go out into the hallway and knock on 208.  You hear an excited squeal from the other side of the door and know you got the correct one.  Hazel opens the door jumping up and down and Kiara smiles and welcomes you into the room.  You tell her all about the situation and your discoveries with Dr. Hanover.  After a long pause in which she processes all of this, she looks at you and calmly asks for a dose of the black ooze for her and the child. You agree and take a couple vials out of your backpack.  They grimace while drinking it, but look more or less satisfied with life after letting it settle for a minute. Kiara then sighs and asks if you would be willing to take them along on the journey to save the survivors of Florida.  She also mentions that after that is done she would like to find a way to get to Guatemala to make sure all of her family out there is ok.',
+        options: ['"Yes I would love to bring you two!"', '"Sorry I dunno if there is room"'],
     },
 
 
@@ -291,6 +295,10 @@ function choiceMade(e){
                         setScene(11)
                     } else if (boxClicked === 'btnid3'){
                         removeItem('Stuffed Pokemon')
+                        if (scenes[26].options.includes('Look for Kiara and Hazel')){
+                            return
+                        }else {scenes[26].options.push('Look for Kiara and Hazel')
+                        }
                         setScene(5)
                     } 
                     return
@@ -439,7 +447,32 @@ function choiceMade(e){
                                 setScene(25)
                             }
                             return
+                        }//final choice
+                        if (currentScene === scenes[25]) {
+                            if (boxClicked === 'btnid0'){
+                                gameWin("You shake Dr. Hanover's hand and he thanks you for helping with everything. Grabbing your backpack, you head back to your room to get ready for the day, planning to sit by the beach.  You head to the spot you found yesterday, but it doesn't seem as beautiful without the sun, and the ooze-covered bodies everywhere so you head out after about 30 minutes. You decide that it might be a better idea to drive down to Key West and see if you can find a boat to Havana.  Maybe there's more sunshine there.")
+                            } else if (boxClicked === 'btnid1'){
+                                setScene(26)
+                            }
+                            return
+                        }//final room check
+                        if (currentScene === scenes[26]) {
+                            if (boxClicked === 'btnid0'){
+                                gameWin("You say one last goodbye to the room and head down to your rental car.  You wonder if this drive will be like all the apocalypse movies that you used to watch at your uncle's house. Chuckling to yourself, and then suddenly feeling the weight of the situation, you start the car and begin the long drive up Highway 1 to Miami. Hopefully you can find some survivors and help get the process for an antidote started.  You wonder if your vacation could have turned out any more interesting and crank up the New Orleans Jazz album that you picked up on your way out here.")
+                            } else if (boxClicked === 'btnid1'){
+                                setScene(27)
+                            }
+                            return
+                        }//find kiara
+                        if (currentScene === scenes[27]) {
+                            if (boxClicked === 'btnid0'){
+                                gameWin("You give Kiara and Hazel a friendly smile and tell them you would be glad to have them join you.  They begin packing and you help with what you can.  Once everything is good to go, you take them both by the hand and walk down to the rental car. You wonder aloud if this drive will be like all the apocalypse movies that you used to watch at your uncle's house. Chuckling with your friends, and then suddenly feeling the weight of the situation, you start the car and begin the long drive up Highway 1 to Miami. Hopefully you can find some survivors and help get the process for an antidote started.  You wonder if your vacation could have turned out any more interesting and crank up the New Orleans Jazz album that you picked up on your way out here.")
+                            } else if (boxClicked === 'btnid1'){
+                                sceneText.innerText = 'KIARA:\n"Are you sure? We take up almost no space and you might want the company right? I have no idea what else we will do if we have no purpose in our journey. Please take us"'
+                            }
+                            return
                         }
+                    
             //end of the line
 
 }

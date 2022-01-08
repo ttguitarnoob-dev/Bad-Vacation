@@ -98,6 +98,7 @@ body {
 
 #end-message {
     position: absolute;
+    font-size: 70px;
     top: 200px;
     padding: 20px;
     font-family: 'Carrois Gothic SC', sans-serif;
@@ -107,11 +108,26 @@ body {
     color: rgb(173, 0, 0);
     background:rgba(7, 0, 0, 0.8);
     display: flex;
-    /* border: 10px solid rgb(102, 0, 0);
-    border-radius: 20px; */
+    border: 10px solid rgb(102, 0, 0);
+    border-radius: 20px;
     
     
 }
+
+#win-message {
+    position: absolute;
+    top: 100px;
+    padding: 20px;
+    font-family: 'Carrois Gothic SC', sans-serif;
+    font-size: 57px;
+    width:fit-content;
+    position: absolute;
+    z-index: 2;
+    color: rgb(0, 173, 158);
+    background:rgba(7, 0, 0, 0.8);
+    border: 4px solid rgb(0, 173, 158);
+    border-radius: 20px;
+    display: flex;
 
 h1 {
     font-size: 70px;
