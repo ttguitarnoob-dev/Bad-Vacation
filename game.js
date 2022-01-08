@@ -430,6 +430,7 @@ function choiceMade(e){
                             if (boxClicked === 'btnid0'){
                                 setScene(19)
                             } else if (boxClicked === 'btnid1'){
+                                removeItem('Ooze Sample')
                                 setScene(23)
                             }
                             return

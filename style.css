@@ -50,6 +50,7 @@ body {
     position: absolute;
     bottom: 70px;
     right: 100px;
+    color: rgb(255, 248, 151);
     background-color: black;
     background-image: url("../project-1-game/Image/backpack\ texture.jpeg");
     border: 3px solid rgba(165, 108, 79, 0.6);
