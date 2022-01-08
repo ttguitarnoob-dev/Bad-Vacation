@@ -112,11 +112,8 @@ let scenes = [
     },
     findKiara27 = {
         text: 'Which room were they in again? 208? You go out into the hallway and knock on 208.  You hear an excited squeal from the other side of the door and know you got the correct one.  Hazel opens the door jumping up and down and Kiara smiles and welcomes you into the room.  You tell her all about the situation and your discoveries with Dr. Hanover.  After a long pause in which she processes all of this, she looks at you and calmly asks for a dose of the black ooze for her and the child. You agree and take a couple vials out of your backpack.  They grimace while drinking it, but look more or less satisfied with life after letting it settle for a minute. Kiara then sighs and asks if you would be willing to take them along on the journey to save the survivors of Florida.  She also mentions that after that is done she would like to find a way to get to Guatemala to make sure all of her family out there is ok.',
-        options: ['"Yes I would love to bring you two!"', '"Sorry I dunno if there is room"'],
+        options: ['"Yes I would love to bring you two!"', '"Sorry I dunno if there is room"']
     },
-
-
-    //end of array
 ]
 
 const optionsButtons = document.getElementById("choice-btns")
