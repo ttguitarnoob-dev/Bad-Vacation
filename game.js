@@ -83,7 +83,7 @@ let scenes = [
     },
     flipBody20 = {
         text: "You reach out and flip the body over, but when it's halfway flipped, its arms swing around and throw you 10 feet, landing on your back near the far wall of the dining room. Gasping, and quickly checking to see if your regulator is still secure, you sit up and see it staggering toward you.  Its chest is severely swollen and pulsating all over as the figure struggles for air. Its eyes have gone all black, and the pupils are so wide that the iris is torn in half.  As it gets closer, you can see the inside of the eyeballs are full of black ooze. You start to panic as it approaches you and picks up speed, but stand up to face it with a burst of adrenaline because there's nowhere to run.",
-        options: ['Punch the figure!']
+        options: ['Punch it!']
     },
     shineLight21 = {
         text: "With a sudden inspiration, you look again at the creature's unnaturally large pupils. You quickly turn on your phone's flashlight and shine it directly in one of the eyes at close range. The ooze inside violently shoots out of the eye, and evaporates into a cloud of sparkling black air. You do the same to the other eye, and then the mouth.  As you hold the light on the ooze in its mouth, it shudders and convulses as the chest gets smaller and smaller.  Eventually, there is no more evaporating ooze, and the figure collapses on the floor, breathing heavily. You jump over it and run back to the door way and wait for it to move again.  After several minutes, it stops moving completely and appears lifeless. You slide down the wall to a sitting position and take a moment to breath and process what just happened.",
