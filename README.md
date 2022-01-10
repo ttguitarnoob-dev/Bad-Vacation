@@ -42,3 +42,4 @@ Stuff to add later:
     background ambient sound/music
     add array that keeps track of who you have met, what you have interacted with...to make it possible to revisit scenes, but keep the progress of the story.
     add character portait to dialogue scenes
+    maybe use li.remove like from the removeItem function to remove every li item of class "inventoryItems" before repopulating the list with the array items with the forEach method.  That would require assigning the class to every item picked up. Just a smoother way of automating everything 

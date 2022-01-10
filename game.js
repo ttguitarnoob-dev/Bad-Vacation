@@ -13,13 +13,12 @@ let scenes = [
         text: "You walk to the front door, open it and peer out into the hallway.  The air seems stale and unfulfilling to breath.  When you look to the left you can hear a distant chatter of multiple voices coming from one of the rooms.  When you look to the right you see a young woman at the end of the hallway sitting against the wall with her hands covering her face.  She appears to be crying.",
         options: ['Go left', 'Go right']
     },
-    //if you choose to go right, and eventually help the woman, a new button will appear later in the story with the option to go to a different scene where you will find the woman and the child and continue the story from there
     rightWoman3 = {
         text: "You turn right and walk down the hall towards the woman.  She is definitely crying. You walk up close to her, and she looks up to meet your eyes as you approach.  She is pretty and her face is stained with the evidence of tears both recent and previous.",
         options: ['Talk to her', 'Walk back down the hall the other way']
     },
     talkWoman4 = {
-        text: 'KIARA:\n    "You have got to help me! I...I woke up to a crash outside my door, and noticed that my daughter was not in her bed.  I have been looking for an hour and there is no sign of her anywhere! I have no idea what else to do...I mean there is only so much space inside this hotel right?  I hope she stayed inside the hotel, because something seems off out there. Please will you let me know if you see her?  She is 6 years old and wearing a Pokemon shirt."',
+        text: 'KIARA:\n"You have got to help me! I...I woke up to a crash outside my door, and noticed that my daughter was not in her bed.  I have been looking for an hour and there is no sign of her anywhere! I have no idea what else to do...I mean there is only so much space inside this hotel right?  I hope she stayed inside the hotel, because something seems off out there. Please will you let me know if you see her?  She is 6 years old and wearing a Pokemon shirt."',
         options: ['Turn and walk down the hall the other way', '"Yes, I will keep an eye out!"']
     },
     stupid5 = {
@@ -80,11 +79,11 @@ let scenes = [
     },
     outsideBeach19 = {
         text: 'You walk up to the smashed front doors and cautiously poke your head out to look both ways. There is no sign of movement anywhere and it stirs your heart with an uncomfortable edge. You scan the edge of the beach for the closest collapsed person, and begin to walk towards it. As you get closer, you notice that the ooze came from the chest of each person that was consumed by it, so Dr. Hanover must be right about the air being unsafe to breath.  You nervously fidget with your breathing regulator as you walk.  Finally, you reach the closest person and kneel down to take a look.  It is a young man that appeared to be here to do some snorkeling.  He is laying flat on his back and the ooze covers him from head to toe, pooling all around his body.',
-        options: ['Collect ooze sample','Return to hotel'], //collect will remove container from inventory and replace it with sample, which will populate an option when you return to hotel. If you don't collect, the button will not be there and you will have to return to scene 19
+        options: ['Collect ooze sample','Return to hotel'],
     },
     flipBody20 = {
-        text: "You reach out and flip the body over, but when it's halfway flipped, its arms swing around and throw you 10 feet, landing on your back near the far wall of the dining room. Gasping, and quickly checking to see if your regulator is still secure, you sit up and see it staggering toward you.  Its chest is severely swollen and pulsating all over as the figure struggles for air. Its eyes have gone all black, and the pupils are so wide that the iris is torn in half.  As it gets closer, you can see the inside of the eyeballs are full of black ooze. You start to panic as it approaches you and picks up speed, but stand up to face it with a burst of adrenaline because there's nowhere to run.", //add options for phone and steel pipe here....also maybe if choose to shine flashlight, add option to mention that to the dr. after he finishes the test
-        options: ['Punch the figure'],
+        text: "You reach out and flip the body over, but when it's halfway flipped, its arms swing around and throw you 10 feet, landing on your back near the far wall of the dining room. Gasping, and quickly checking to see if your regulator is still secure, you sit up and see it staggering toward you.  Its chest is severely swollen and pulsating all over as the figure struggles for air. Its eyes have gone all black, and the pupils are so wide that the iris is torn in half.  As it gets closer, you can see the inside of the eyeballs are full of black ooze. You start to panic as it approaches you and picks up speed, but stand up to face it with a burst of adrenaline because there's nowhere to run.",
+        options: ['Punch the figure!']
     },
     shineLight21 = {
         text: "With a sudden inspiration, you look again at the creature's unnaturally large pupils. You quickly turn on your phone's flashlight and shine it directly in one of the eyes at close range. The ooze inside violently shoots out of the eye, and evaporates into a cloud of sparkling black air. You do the same to the other eye, and then the mouth.  As you hold the light on the ooze in its mouth, it shudders and convulses as the chest gets smaller and smaller.  Eventually, there is no more evaporating ooze, and the figure collapses on the floor, breathing heavily. You jump over it and run back to the door way and wait for it to move again.  After several minutes, it stops moving completely and appears lifeless. You slide down the wall to a sitting position and take a moment to breath and process what just happened.",
@@ -123,16 +122,12 @@ const restart = document.getElementById('restart-button')
 let inventory = []
 let items = document.getElementById('inventory')
 
-
 function startGame(){
-    // currentScene = scenes[0]
     setScene(0)
-    
 }
 
 function setScene(scene){
     currentScene = scenes[scene]
-    // console.log(currentScene)
     sceneText.innerText = currentScene.text
     while (optionsButtons.firstChild){
         optionsButtons.removeChild(optionsButtons.firstChild)
@@ -146,17 +141,12 @@ function setScene(scene){
         optionsButtons.appendChild(button)
         button.addEventListener('click', function(e){
             choiceMade(e)
-            
-        })
-           
+            })  
         }
     }
    
-
-
 function choiceMade(e){
     let boxClicked = e.currentTarget.id
-            // startingScene
             if (currentScene === scenes[0]) {
                 if (boxClicked === 'btnid0'){
                     sceneText.innerText = "You walk to the bathroom and take a pee, which is relieving, but everything in the bathroom seems normal.  You can't shake the thought that something feels weird.  You wonder what's going on outside."
@@ -179,7 +169,6 @@ function choiceMade(e){
                 }
                 return 
             }
-            //open curtain
             if (currentScene === scenes[1]) {
                 if (boxClicked === 'btnid0'){
                     gameOver('You slide the balcony door open, and feel all of the air rush out of the hotel room.  Slowly, a haze starts building up in the room, and you find it hard to breath.  Suddenly black ooze bursts out of your lungs and you fall over in a heap.  GAME OVER')
@@ -190,7 +179,6 @@ function choiceMade(e){
                 }
                 return
             }
-            //exit room and look left and right
             if (currentScene === scenes[2]) {
                 if (boxClicked === 'btnid0'){
                     setScene(6)
@@ -199,7 +187,6 @@ function choiceMade(e){
                 }
                 return
             }
-            //walk towards woman
             if (currentScene === scenes[3]) {
                     if (boxClicked === 'btnid0'){
                         setScene(4)
@@ -208,7 +195,6 @@ function choiceMade(e){
                     }
                     return
                 }
-            //talk to woman
             if (currentScene === scenes[4]) {
                     if (boxClicked === 'btnid0'){
                         setScene(6)
@@ -227,7 +213,6 @@ function choiceMade(e){
                     }
                     return
                 }
-                //walk away from woman
             if (currentScene === scenes[100]) {
                 if (boxClicked === 'btnid0'){
                     return
@@ -235,7 +220,6 @@ function choiceMade(e){
                     setScene(6)
                         }
             }
-            //walk towards voices 
             if (currentScene === scenes[6]) {
                 if (boxClicked === 'btnid0'){
                     setScene(7)
@@ -254,7 +238,7 @@ function choiceMade(e){
                     scenes[20].options[2] = 'Hit it with the pipe!'
                 }
                 return
-        } //elevator
+        }
             if (currentScene === scenes[7]) {
                 if (boxClicked === 'btnid0'){
                     gameOver("You ride the elevator down to the first floor.  When the doors open, all of the air gets sucked out of the elevator. Slowly, it becomes difficult to breath and then suddenly black ooze bursts out of your lungs and you collapse in a heap.  GAME OVER")
@@ -262,7 +246,7 @@ function choiceMade(e){
                     setScene(8)
                 }
                 return
-            }//3rd floor
+            }
         if (currentScene === scenes[8]) {
             if (boxClicked === 'btnid0'){
                 setScene(9)
@@ -270,7 +254,7 @@ function choiceMade(e){
                 setScene(12)
             }
             return
-        }//pool area
+        }
         if (currentScene === scenes[9]) {
                 if (boxClicked === 'btnid0'){
                     sceneText.innerText = "You enter the Men's locker room and look around, but there is nobody in there so you go back out to the main pool room."
@@ -282,7 +266,7 @@ function choiceMade(e){
                     setScene(10)
                 } 
                 return
-             }//girl in sauna
+             }
              if (currentScene === scenes[10]) {
                     if (boxClicked === 'btnid0'){
                         sceneText.innerText = "When you speak, her eyes get wider and she shrinks further into the corner."
@@ -299,7 +283,7 @@ function choiceMade(e){
                         setScene(5)
                     } 
                     return
-                 }//return girl to mom
+                 }
                  if (currentScene === scenes[5]) {
                     if (boxClicked === 'btnid0'){
                         setScene(12)
@@ -307,7 +291,7 @@ function choiceMade(e){
                         setScene(12)
                     }
                     return
-                }//pool again
+                }
                 if (currentScene === scenes[11]) {
                     if (boxClicked === 'btnid0'){
                         sceneText.innerText = "You enter the Men's locker room and look around, but there is nobody in there so you go back out to the main pool room."
@@ -319,7 +303,7 @@ function choiceMade(e){
                         setScene(12)
                     } 
                     return
-                 }//3rd floor room explore
+                 }
                  if (currentScene === scenes[12]) {
                         if (boxClicked === 'btnid0'){
                             sceneText.innerText = "You walk down the hall yelling into each room to see if anyone answers. After you yell into room 307, the door to 309 opens and an angry looking head pokes out and yells at you to keep it down. He shuts the door with frustration."
@@ -329,7 +313,7 @@ function choiceMade(e){
                             setScene(13)
                         }
                         return
-                     }//find Dr.
+                     }
                      if (currentScene === scenes[13]) {
                         if (boxClicked === 'btnid0'){
                             sceneText.innerText = 'DR. HANOVER:\n"Look here, bud. You think I wouldnt go right now if this regulator fit my face? Grow some balls man, I know you got a sense that the situation out there is dangerous, so why not try to help someone? You gonna do this?"'
@@ -342,13 +326,13 @@ function choiceMade(e){
                             setScene(14)
                         }
                         return
-                    }//accept mission
+                    }
                     if (currentScene === scenes[14]) {
                         if (boxClicked === 'btnid0'){
                             setScene(15)
                         }
                         return
-                    }//elevator again
+                    }
                     if (currentScene === scenes[15]) {
                         if (boxClicked === 'btnid0'){
                             setScene(16)
@@ -356,7 +340,7 @@ function choiceMade(e){
                             setScene(17)
                         }
                         return
-                    }//second floor again
+                    }
                     if (currentScene === scenes[17]) {
                         if (boxClicked === 'btnid0'){
                             setScene(16)
@@ -364,7 +348,7 @@ function choiceMade(e){
                             sceneText.innerText = 'MATTHEW:\n"Well hey man, you look like you just spoke to the Dr. Did he convince you to go out there?  Collect a specimen huh...wonder what he wants with that...good luck out there.  I would join ya, but there are no more breathing apparatus in this entire hotel.  Funny because we are in a prime scuba diving locale, but what can you do. Just let me know if I can help in any other way."'
                         }
                         return
-                    }//first floor
+                    }
                     if (currentScene === scenes[16]) {
                         if (boxClicked === 'btnid0'){
                             setScene(18)
@@ -372,7 +356,7 @@ function choiceMade(e){
                             setScene(19)
                         }
                         return
-                    }//dining room
+                    }
                     if (currentScene === scenes[18]) {
                         if (boxClicked === 'btnid0'){
                             setScene(20)
@@ -380,7 +364,7 @@ function choiceMade(e){
                             setScene(19)
                         }
                         return
-                    }//monster fight
+                    }
                     if (currentScene === scenes[20]) {
                         if (boxClicked === 'btnid0'){
                             gameOver("You punch the figure hard in the face and it staggers back one step.  Its nose broke but that didn't hurt it at all, and it becomes enraged.  It charges at you again with arms swinging wildly in all directions.  One arm catches your breathing regulator and it gets ripped from your face. You try to run, but your breathing gets heavy and suddenly black ooze bursts from your lungs and you collapse in a heap.  GAME OVER")
@@ -396,13 +380,13 @@ function choiceMade(e){
                         }
 
                         return
-                    }//shine light
+                    }
                     if (currentScene === scenes[21]) {
                         if (boxClicked === 'btnid0'){
                             setScene(19)
                         }
                         return
-                    }//beach
+                    }
                     if (currentScene === scenes[19]) {
                             if (boxClicked === 'btnid0'){
                                 removeItem('Sample Container')
@@ -422,7 +406,7 @@ function choiceMade(e){
                                 setScene(22)
                             }
                             return
-                        }//bring sample to dr.
+                        }
                         if (currentScene === scenes[22]) {
                             if (boxClicked === 'btnid0'){
                                 setScene(19)
@@ -431,7 +415,7 @@ function choiceMade(e){
                                 setScene(23)
                             }
                             return
-                        }//finished experiments
+                        }
                         if (currentScene === scenes[23]) {
                             if (boxClicked === 'btnid0'){
                                 setScene(24)
@@ -439,13 +423,13 @@ function choiceMade(e){
                                 sceneText.innerText = 'DR. HANOVER:\n"Well there is something I never would have guessed in any kind of research.  You may be onto something there, though I have no guess as to why the lights in this room have no effect on it.  Maybe it has to be a certain type of LED.  Adding that to my list of research points, thank you!"\n\nHe glances back at his experiment table.'
                             }
                             return
-                        }//leap of faith
+                        }
                         if (currentScene === scenes[24]) {
                             if (boxClicked === 'btnid0'){
                                 setScene(25)
                             }
                             return
-                        }//final choice
+                        }
                         if (currentScene === scenes[25]) {
                             if (boxClicked === 'btnid0'){
                                 gameWin("You shake Dr. Hanover's hand and he thanks you for helping with everything. Grabbing your backpack, you head back to your room to get ready for the day, planning to sit by the beach.  You head to the spot you found yesterday, but it doesn't seem as beautiful without the sun, and the ooze-covered bodies everywhere so you head out after about 30 minutes. You decide that it might be a better idea to drive down to Key West and see if you can find a boat to Havana.  Maybe there's more sunshine there.")
@@ -453,7 +437,7 @@ function choiceMade(e){
                                 setScene(26)
                             }
                             return
-                        }//final room check
+                        }
                         if (currentScene === scenes[26]) {
                             if (boxClicked === 'btnid0'){
                                 gameWin("You say one last goodbye to the room and head down to your rental car.  You wonder if this drive will be like all the apocalypse movies that you used to watch at your uncle's house. Chuckling to yourself, and then suddenly feeling the weight of the situation, you start the car and begin the long drive up Highway 1 to Miami. Hopefully you can find some survivors and help get the process for an antidote started.  You wonder if your vacation could have turned out any more interesting and crank up the New Orleans Jazz album that you picked up on your way out here.")
@@ -461,7 +445,7 @@ function choiceMade(e){
                                 setScene(27)
                             }
                             return
-                        }//find kiara
+                        }
                         if (currentScene === scenes[27]) {
                             if (boxClicked === 'btnid0'){
                                 gameWin("You give Kiara and Hazel a friendly smile and tell them you would be glad to have them join you.  They begin packing and you help with what you can.  Once everything is good to go, you take them both by the hand and walk down to the rental car. You wonder aloud if this drive will be like all the apocalypse movies that you used to watch at your uncle's house. Chuckling with your friends, and then suddenly feeling the weight of the situation, you start the car and begin the long drive up Highway 1 to Miami. Hopefully you can find some survivors and help get the process for an antidote started.  You wonder if your vacation could have turned out any more interesting and crank up the New Orleans Jazz album that you picked up on your way out here.")
@@ -470,27 +454,13 @@ function choiceMade(e){
                             }
                             return
                         }
-                    
-            //end of the line
-
 }
-//maybe use li.remove like from the removeItem function to remove every li item of class "inventoryItems" before repopulating the list with the array items with the forEach method.  That would require assigning the class to every item picked up. Just a smoother way of automating everything 
+
 function addItem(item){
     let li = document.createElement('li')
     li.innerText = item
     li.setAttribute('id', item)
     items.appendChild(li)
-
-    // if (items.length >= 1){
-    // while (items.firstChild){
-    //     items.removeChild(optionsButtons.firstChild)
-    // }
-    // }
-    // inventory.forEach((item)=>{
-    //     let li = document.createElement('li')
-    //     li.innerText = item
-    //     items.appendChild(li)
-    // })
 }
 
 function removeItem(item){
@@ -519,24 +489,3 @@ restart.addEventListener('click', function(){
 })
 
 startGame()
-
-//templates
-
-//4 button scene
-// if (currentScene === scenes[0]) {
-//     if (boxClicked === 'btnid0'){
-        
-//     } else if (boxClicked === 'btnid1'){
-        
-//     } else if (boxClicked === 'btnid2'){
-        
-//     } else if (boxClicked === 'btnid3'){
-        
-//     } 
-//     return
-//  }
-//add option to scene on item pickup
-// if (inventory.includes('Phone')){
-//     console.log(currentScene, 'helllooooo')
-//     scenes[1].options.push('Throw your phone in the trash')
-// }
